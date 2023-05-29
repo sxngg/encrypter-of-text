@@ -70,6 +70,11 @@ main {
 
 .pre-encryptper-container {
     margin-bottom: 2rem;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 /**
@@ -218,7 +223,7 @@ textarea::placeholder {
     display: flex;
     text-align: center;
     flex-direction: column;
-    margin: 3rem 0rem 0rem 0rem;
+    margin: 1rem 0rem 0rem 0rem;
     height: 8rem;
     padding: .5rem;
     position: absolute;
@@ -226,7 +231,9 @@ textarea::placeholder {
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-}
+    position: absolute;
+    top: 80%;
+  }
 
 .progress-bar {
     display: none;
