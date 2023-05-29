@@ -1,0 +1,462 @@
+/**
+* MOBILE DESIGN
+*/
+
+/**
+* IMPORT FONTS
+*/
+@font-face {
+    font-family: 'Paradox';
+    src: url('fonts/Paradox.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fragmentado';
+    src: url('fonts/Fragmentcore.otf') format('truetype');
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: rgb(228, 228, 228);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+    font-family: 'Fragmentado', sans-serifs;
+
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.alura-logo {
+    width: 5rem;
+    height: 5rem;
+    margin: 0;
+}
+
+main {
+    height: calc(100vh - 10rem);
+    position: relative;
+}
+
+.anonymous-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -100;
+}
+
+.anonymous-body {
+    max-width: 100%;
+    max-height: 100%;
+    filter: opacity(3%);
+}
+
+.anonymous-face {
+    display: none;
+    width: 300px;
+    height: 400px;
+    filter: invert(100%);
+}
+
+
+.pre-encryptper-container {
+    margin-bottom: 2rem;
+}
+
+/**
+* * We center text-area box taking 50% all screen always, making it responsive design
+* ? We used text area instead of input 'cause input is for one-line answer. text-area allows multiple answer lines
+*/
+.text-area-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 5rem;
+}
+
+.text-area-container textarea {
+    text-transform: lowercase;
+    resize: none;
+    overflow: scroll;
+    min-height: 4rem;
+    max-height: calc(100vh - 35rem);
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: 'Fragmentado', sans-serifs;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea::placeholder {
+    text-transform: uppercase;
+    font-family: 'Paradox', sans-serifs;
+    text-align: center;
+    letter-spacing: .5rem;
+    font-size: 1.2rem;
+
+}
+
+.encrypter-container {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+
+}
+
+.buttons-container p {
+    font-size: 1rem;
+    margin: 0 .5rem;
+}
+
+.info {
+    display: flex;
+
+}
+
+.info-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+
+/**
+* CENTER BUTTONS
+* * display:flex have 'flex-direction:row' default, so ':column' positions elements vertically  
+*/
+.buttons-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.buttons-wrap button {
+    width: 90%;
+    border-radius: 1.5rem;
+    height: 5rem;
+    margin: 5px 0 5px 0;
+    letter-spacing: .5rem;
+    position: relative;
+    font-size: 1rem;
+    transition: background-color 2s, color 2s, font-family 3s, font-size 3s;
+
+}
+
+.buttons-wrap button:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, gray, black, gray, black, gray, black);
+    background-size: 800%;
+    border-radius: 1rem;
+    filter: blur(.6rem);
+    animation: glowing 10s linear infinite;
+}
+
+
+.buttons-wrap .encrypt-btn:hover {
+    transition: background-color 2s, color 2s, font-family 3s, font-size 3s;
+    font-family: 'Paradox', sans-serifs;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    cursor: pointer;
+}
+
+.buttons-wrap .decrypt-btn {
+    font-family: 'Paradox', sans-serifs;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+}
+
+.buttons-wrap .decrypt-btn:hover {
+    transition: background-color 2s, color 2s, font-family 2s;
+    font-family: sans-serif;
+    background-color: rgb(196, 196, 196);
+    color: black;
+    cursor: pointer;
+
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+.encrypt-or-decrypt-container {
+    border-radius: 1rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 3rem 0rem 0rem 0rem;
+    height: 8rem;
+    padding: .5rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+
+.progress-bar {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    background-color: white;
+    top: 50%;
+    z-index: 100;
+    height: 5%;
+    position: absolute;
+    animation-name: progressBar;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+.progress-bar h4 {
+    display: none;
+    font-family: 'Paradox', sans-serifs;
+    color: white;
+    position: absolute;
+    top: 35%;
+    font-size: 1rem;
+    letter-spacing: .5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+
+
+@keyframes progressBar {
+    0% {
+        width: 0;
+
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.final-text {
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: .5rem;
+    border-radius: 2rem;
+    border-width: 1px;
+    border-style: ridge;
+    background-color: whitesmoke;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.final-text img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.final-text img:hover {
+    transition: 1s;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+}
+
+.decrypt-btn-alert {
+    border-radius: 10px !important;
+    font-size: 1.5rem !important;
+}
+
+.decrypt-btn-html {
+    color: white !important;
+}
+
+.final-text button {
+    font-family: 'Fragmentado', sans-serifs;
+    width: 50%;
+    letter-spacing: .2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: .5rem;
+    position: relative;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    border-radius: 2rem;
+}
+
+.final-text button:hover {
+    transition: 1s;
+    background-color: rgb(53, 53, 148);
+}
+
+.final-text button:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, gray, black, gray, black, gray, black);
+    background-size: 400%;
+    border-radius: 1rem;
+    animation: glowing 10s linear infinite;
+}
+
+.warning-letter-container {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.warning-letter-container .fraud-icon {
+    width: 15rem;
+    height: 15rem;
+    display: none;
+}
+
+
+.warning-letter-container h3 {
+    font-family: sans-serif;
+
+}
+
+/**
+* TABLET DESIGN
+*/
+@media screen and (min-width: 768px) {
+
+    .bar {
+        top: 60%;
+    }
+
+    .progress-bar h4 {
+        font-size: 2rem;
+
+    }
+
+
+    .buttons-wrap {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .buttons-wrap button {
+        margin: 1rem;
+    }
+
+    .encrypter-container {
+        bottom: 20%;
+        width: 100%;
+    }
+}
+
+/**
+* DESKTOP DESIGN
+*/
+@media screen and (min-width:1440px) {
+
+    main {
+        display: flex;
+        position: relative;
+    }
+
+    .anonymous-face {
+        width: 400px;
+        height: 500px;
+    }
+
+    .anonymous-body {
+        position: absolute;
+        left: 10%;
+    }
+
+    .pre-encryptper-container {
+        position: relative;
+        width: 70%;
+    }
+
+    .text-area-container textarea {
+        font-size: 3rem;
+        max-height: calc(100vh - 25rem);
+
+    }
+
+    textarea::placeholder {
+        font-size: 2rem;
+    }
+
+    .encrypter-container {
+        bottom: 0;
+        width: 100%;
+    }
+
+    .encrypt-or-decrypt-container {
+        padding: 0;
+        height: 100%;
+        left: 70%;
+        width: 30%;
+        transform: none;
+    }
+
+    .final-text {
+        font-size: 1.5rem;
+        overflow-y: scroll;
+        height: 100vh;
+    }
+
+    .warning-letter-container {
+        font-size: 1.5rem;
+    }
+
+
+    .warning-letter-container .fraud-icon {
+        display: flex;
+    }
+}

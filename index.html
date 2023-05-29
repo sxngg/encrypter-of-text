@@ -1,0 +1,76 @@
+<!--
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src="script.js"></script>
+    <title>Encripter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+<body id="body">
+    <header>
+        <div class="logo" id="logo">
+            <img src="images/alura_logo.png" class="alura-logo">
+        </div>
+    </header>
+
+    <main id="main-wrap">
+        <div class="anonymous-wrap">
+            <img class="anonymous-body" id="anonymousBody" src="images/hacker-body.png">
+            <img class="anonymous-face" id="anonymousFace" src="images/face-two.png">
+
+        </div>
+        <div class="pre-encryptper-container" id="preEncrypterContainer">
+            <div class="text-area-container">
+                <textarea id="myTextArea" rows="1" placeholder="INGRESA EL TEXTO AQUI"
+                    onkeyup="javascript:this.value=this.value.toLowerCase();"></textarea>
+            </div>
+
+            <div class="encrypter-container">
+                <div class="buttons-container">
+                    <div class="info">
+                        <img src="images/info-icon.png" class="info-icon">
+                        <p> Solo letras minúsculas y sin acentos</p>
+                    </div>
+                    <div class="buttons-wrap">
+                        <button onclick="encryptBtn()" class="encrypt-btn" id="encryptBtn"> ENCRIPTAR </button>
+                        <button onclick="decryptBtn()" class="decrypt-btn"> DESENCRIPTAR </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="progress-bar" id="progressBar">
+            <div class="bar" id="bar"> </div>
+            <h4 class="decrypt-text" id="decryptText"> DESENCRIPTANDO </h4>
+            <h4 class="encrypt-text" id="encryptText"> ENCRIPTANDO </h4>
+        </div>
+
+        <div class="encrypt-or-decrypt-container" id="encryptOrDecryptContainer">
+            <div class="final-text" id="finalText">
+                <p class="encrypter-text" id="encrypterText"></p>
+                <img src="images/copy_icon.png" onclick="copyClipboard()" id="btnCopy">
+            </div>
+            <div class="warning-letter-container" id="warning-letter-container">
+                <img src="images/hacker-pic.png" class="fraud-icon">
+                <h3> Ningún mensaje fue encontrado</h3>
+                <span> Ingresa el texto que desees encriptar o desencriptar</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
